@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="text-center">详细信息</h4>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-lg-6">
+				<!--// img-rounded圆角-->
+				<!--cover 自定义函数中的字段-->
+				<img ng-src="img/{{cover}}.jpg" class="img-responsive img-rounded" alt="{{book.name}}" />
+			</div>
+			<div class="col-lg-6">
+				<dl class="dl-horizontal">
+					<dt>图书:</dt>
+					<dd>{{book.name}}</dd>
+					<dt>作者:</dt>
+					<dd>{{book.auto}}</dd>
+					<dt>价格:</dt>
+					<dd>{{book.price}}</dd>
+					<dt>出版时间:</dt>
+					<dd>{{book.time}}</dd>
+				</dl>
+			<!--下面是图片关联-->
+							<div class="row">
+									<!--images是单个的json数据-->
+									<div class="col-sm-3" ng-repeat="img in book.images">
+										<!--第一个img是文件夹名称 第二个img是上面循环的指令-->
+										<img  ng-click="setCover(img)" ng-src="img/{{img}}.jpg"  class="img-responsive img-circle" />
+									</div>
+							</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<a  href="javascript:history.back()" class="btn btn-default">返回</a>
+	</div>
+</div>
+
+
+

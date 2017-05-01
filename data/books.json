@@ -1,0 +1,7 @@
+{ "data":[	
+					{"id":"a","name":"鬼吹灯","auto":"天下霸唱","price":"49.00元","time":"2014-10-10","statue":"true","images":["a","b","c","d"]},
+					{"id":"b","name":"盗墓笔记","auto":"南派三叔","price":"15.00元","time":"2015-16-01","statue":"false","images":["a","b","c","d"]},
+					{"id":"c","name":"大主宰","auto":"天蚕土豆","price":"38.60元","time":"2016-14-20","statue":"true","images":["a","b","c","d"]},
+					{"id":"d","name":"你只是看起来很努力","auto":"李尚龙","price":"48.00元","time":"2008-09-09","statue":"false","images":["a","b","c","d"]}
+				]
+}

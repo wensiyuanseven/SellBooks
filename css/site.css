@@ -1,0 +1,13 @@
+/*解决闪屏问题*/
+		 /*第一步：浏览器让绑定的div区域隐藏*/ 
+		.ng-cloak{
+			display: none;
+		}
+		a,a:hover{
+			text-decoration: none;
+		}
+		.ng-hide{
+			/*渐变时间*/
+			transition-duration: 0.8s;
+			opacity: 0;
+		}

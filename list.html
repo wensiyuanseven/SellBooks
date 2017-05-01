@@ -1,0 +1,61 @@
+<!--搜索框-->
+		<div class="row">
+			<div class="col-lg-4" ></div>
+			<div class="col-lg-4">
+				<!--input、select、textarea等元素，在Bootstrap框架中，通过定制了一个类名`form-control`，-->
+				<!--也就是说，如果这几个元素使用了类名“form-control”，-->
+				<!--将会实现一些设计上的定制效果。-->
+				<select class="form-control" ng-model="select">
+					<option  selected="selected" disabled="disabled">排序方式</option>
+					<option value="name">名字</option>
+					<option value="auto">作者</option>
+					<option value="time">时间</option>
+					<option value="price">价格</option>
+				</select>
+			</div>
+			<div class="col-lg-4">
+				<input   ng-model="query"  class="form-control " placeholder="请输入搜素关键字" />
+			</div>
+		</div>
+			<p></p>
+		<ul class="list-group">
+			<!--模板的使用-->
+			<!--ng-repeat=""可以遍历所有数组 即图书-->
+			<!--filter:query过滤器-->
+			<!--orderBy:select排序-->
+			<!--.data 可以获取data数组与服务相对应-->
+			<!--ng-hide="flag"与下面的ng-click()相对应 点击的时候为true 把列表隐藏-->
+			<!--当ng-hide="flag"隐藏的时候 会自动增加一个.ng-hide样式 也就是class="ng-hide"-->
+			<li class="list-group-item "  ng-hide="flag" ng-repeat="book in books.data  |  filter:query  |  orderBy:select">
+				<div class="row">
+					<!--左侧显示图片-->
+					<div class="col-sm-3">
+						<!--通过添加.img-responsive class可以让Bootstrap 3中的图片对响应式布局的支持更友好。
+						其实质是为图片赋予了max-width: 100%;和height: auto;属性，可以让图片按比例缩放，不超过其父元素的尺寸。-->
+					<a href="#/{{book.id}}">
+						<img src="img/{{book.id}}.jpg"  alt="{{book.name}}" class="img-responsive img-thumbnail"/>
+					</a>
+					</div>
+					<!--右侧显示图书信息-->
+					<div class=" col-sm-9">
+						<div class="text-right">
+							<!--自定义样式和文本过滤器-->
+							<span class="{{book.statue | getStatueFilter}} ">{{book.statue | checkStatueFilter}}</span>
+							<!--<label class="label-danger">{{book.statue | checkStatueFilter}}</label>-->
+							
+						</div>
+						<blockquote>
+							<h2>
+								<a href="#/{{book.id}}">{{book.name}}</a>
+							</h2>
+							<footer>{{book.auto}}</footer>
+						</blockquote>
+						<div class="text-right">
+							<button class="btn btn-primary" ng-click="flag=true" >
+								<span class="glyphicon glyphicon-shopping-cart">{{book.price}}</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
